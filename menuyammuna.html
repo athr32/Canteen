@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <link rel="stylesheet" href="menuformatting.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('dy.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script src="menu.js" defer></script>
+
+</head>
+<body>
+    <div id="food-menu"></div>
+   
+    <script>
+        // Define food items
+        const foodItems = [
+            { "id": 31,name: 'Cappuccino', price: '60' },
+            { "id": 32,name: 'Tea', price: '10' },
+            { "id": 33,name: 'Masala Coke', price: '60' },
+            { "id": 34,name: 'Oreo Shake', price: '75' },
+            { "id": 35,name: 'French Fries', price: '60' },
+            { "id": 36,name: 'Veg Burger', price: '70' },
+            { "id": 37,name: 'Cheese Burger', price: '80' },
+            { "id": 38,name: 'Veg Cheese Sandwich', price: '60' },
+            { "id": 39,name: 'Aloo Paratha', price: '45' },
+            { "id": 310,name: 'Paneer Paratha', price: '60' },
+            {"id": 311, name: 'Idli(2pc) Sambhar', price: '50' },
+            { "id": 312,name: 'Masala Dosa', price: '70' },
+            { "id": 313,name: 'Red Sauce Pasta', price: '130' },
+            { "id": 314,name: 'Veg Hakka Noodles', price: '90' },
+            { "id": 315,name: 'Veg Spring Rolls', price: '80' },
+            { "id": 316,name: 'Chilli Potato', price: '80' },
+            { "id": 317,name: 'Paneer Fried Rice', price: '110' },
+            {"id": 318, name: 'Veggie Delight Pizza', price: '170' },
+            { "id": 319,name: 'Peppy Paneer Pizza', price: '180' },
+            {"id": 320, name: 'Farmhouse Pizza', price: '210' },
+            { "id": 321,name: 'Brownie with Ice Cream', price: '80' },
+        ];
+
+        // Generate HTML for each food item
+        const foodMenu = document.getElementById('food-menu');
+        foodItems.forEach(item => {
+            const html = `
+                <div class="food-item">
+                    <span>${item.name} - ₹${item.price}</span>
+                    <input type="checkbox" onclick="toggleQuantityControls(this)">
+                    <div class="quantity-controls">
+                        <button onclick="adjustQuantity(this, false)">-</button>
+                        <input type="number" value="1" readonly>
+                        <button onclick="adjustQuantity(this, true)">+</button>
+                    </div>
+                </div>
+            `;
+            foodMenu.insertAdjacentHTML('beforeend', html);
+        });
+    </script>
+    
+    <button id="checkout-button">Checkout</button>
+    <div id="order-summary"></div>
+    
+</body>
+</html>

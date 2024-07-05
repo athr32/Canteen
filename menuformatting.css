@@ -1,0 +1,95 @@
+
+
+#food-menu {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.food-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.food-item:last-child {
+    border-bottom: none;
+}
+
+.food-item span {
+    font-size: 16px;
+    color: #333;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    display: none;
+}
+
+.quantity-controls button {
+    background-color: #0daf1a;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+.quantity-controls input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    padding: 5px;
+}
+#checkout-button {
+    display: block;
+    width: 50%; /* Adjust this value as needed */
+    padding: 10px; /* Adjust padding for a smaller button */
+    background-color: #0daf1a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px; /* Adjust font size for a smaller button */
+    margin: 20px auto; /* Center the button */
+    text-align: center; /* Ensure text is centered */
+}
+
+#checkout-button:hover {
+    background-color: lightblue;
+}
+
+#order-summary {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#order_section {
+    text-align: center;
+    padding: 20px;
+}
+
+.order-details {
+    background-color: #ffffff;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    display: none; /* Initially hidden */
+}
+
+.order-details.show {
+    display: block; /* Show when there is an order */
+}
