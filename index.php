@@ -1,36 +1,36 @@
 <?php
-session_start();
+    session_start();
 
-include("db.php");
+    include("db.php");
+    
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+        if (!empty($email) && !empty($password)) {
+            $query = "SELECT * FROM form WHERE email='$email' LIMIT 1";
+            $result = mysqli_query($con, $query);
 
-    if (!empty($email) && !empty($password)) {
-        $query = "SELECT * FROM form WHERE email='$email' LIMIT 1";
-        $result = mysqli_query($con, $query);
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    $user_data = mysqli_fetch_assoc($result);
 
-        if ($result) {
-            if (mysqli_num_rows($result) > 0) {
-                $user_data = mysqli_fetch_assoc($result);
-
-                if ($user_data['password'] == $password) {
-                    header("Location: main.php");
-                    die;
+                    if ($user_data['password'] == $password) {
+                        header("Location: main.php");
+                        die;
+                    } else {
+                        echo "<script type='text/javascript'>alert('Wrong password');</script>";
+                    }
                 } else {
-                    echo "<script type='text/javascript'>alert('Wrong password');</script>";
+                    echo "<script type='text/javascript'>alert('Email not found');</script>";
                 }
             } else {
-                echo "<script type='text/javascript'>alert('Email not found');</script>";
+                echo "Error: " . mysqli_error($con);
             }
         } else {
-            echo "Error: " . mysqli_error($con);
+            echo "<script type='text/javascript'>alert('Please enter email and password');</script>";
         }
-    } else {
-        echo "<script type='text/javascript'>alert('Please enter email and password');</script>";
     }
-}
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="login.php" method="post">
+        <form action="index.php" method="post">
             <div>
                 <input type="email" id="login_username" name="email" placeholder="Email" required>
             </div>

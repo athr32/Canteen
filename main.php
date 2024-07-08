@@ -1,5 +1,28 @@
 <?php
     include('db.php');
+    
+?>
+<?php
+    session_start();
+    include('db1.php');
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $feedback = $_POST['feedback'];
+        
+        if(!empty(!empty($feedback)){
+            $query = "INSERT INTO form (feedback) VALUES ('$feedback')";
+            
+            if (mysqli_query($con, $query)) {
+                echo "<script type='text/javascript'>alert('Successfully registered a feedback!');</script>";
+            } 
+            else {
+                echo "Error: " . $query . "<br>" . mysqli_error($con);
+            }
+        }
+        else {
+            echo "<script type='text/javascript'>alert('Please write some feedback.')</script>";
+        }
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -72,12 +95,15 @@
                 </div>
             </div>
         </div>
-        <div class="feedback-box">
-            <h3>Feedback</h3>
-            <textarea placeholder="Enter your feedback here..."></textarea>
-            <br>
-            <button type="submit">Submit</button>
-        </div>
+        
+        <form action="main.php" method="post">
+            <div class="feedback-box">
+                <h3>Feedback</h3>
+                <textarea name= "feedback" placeholder="Enter your feedback here..."></textarea>
+                <br>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
     </section>
 </body>
 </html>
