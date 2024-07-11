@@ -45,13 +45,20 @@ body {
 
 .login-container input[type="text"],
 .login-container input[type="password"],
-.login-container input[type="email"] {
+.login-container input[type="email"],
+.login-container select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+.login-container select {
+    appearance: none; /* Remove default styling for select element */
+    background-color: white;
+    cursor: pointer;
 }
 
 .login-container button {

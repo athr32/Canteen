@@ -1,14 +1,14 @@
 <?php
     session_start();
-
     include("db.php");
-    
+
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $user_type = $_POST['user_type'];
 
-        if (!empty($email) && !empty($password)) {
-            $query = "SELECT * FROM form WHERE email='$email' LIMIT 1";
+        if (!empty($email) && !empty($password) && !empty($user_type)) {
+            $query = "SELECT * FROM form WHERE email='$email' AND user_type='$user_type' LIMIT 1";
             $result = mysqli_query($con, $query);
 
             if ($result) {
@@ -16,22 +16,29 @@
                     $user_data = mysqli_fetch_assoc($result);
 
                     if ($user_data['password'] == $password) {
-                        header("Location: main.php");
+                        $_SESSION['id'] = $user_data['id']; // Store user id in session
+
+                        if ($user_type == "user") {
+                            header("Location: mainuser.php");
+                        } else if ($user_type == "owner") {
+                            header("Location: mainowner.php");
+                        }
                         die;
                     } else {
                         echo "<script type='text/javascript'>alert('Wrong password');</script>";
                     }
                 } else {
-                    echo "<script type='text/javascript'>alert('Email not found');</script>";
+                    echo "<script type='text/javascript'>alert('Email or User Type not found');</script>";
                 }
             } else {
                 echo "Error: " . mysqli_error($con);
             }
         } else {
-            echo "<script type='text/javascript'>alert('Please enter email and password');</script>";
+            echo "<script type='text/javascript'>alert('Please enter email, password, and user type');</script>";
         }
     }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,10 +53,17 @@
         <h2>Login</h2>
         <form action="index.php" method="post">
             <div>
-                <input type="email" id="login_username" name="email" placeholder="Email" required>
+                <input type="email" id="login_email" name="email" placeholder="Email" required>
             </div>
             <div>
                 <input type="password" id="login_password" name="password" placeholder="Password" required>
+            </div>
+            <div>
+                <select id="login_user_type" name="user_type" required>
+                    <option value="" disabled selected>Select User Type</option>
+                    <option value="user">User</option>
+                    <option value="owner">Owner</option>
+                </select>
             </div>
             <div>
                 <button type="submit">Login</button>

@@ -1,23 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const orderDetails = document.getElementById('order_details');
-    const orderStatus = document.getElementById('order_status');
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.food-item input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', showOrderSummary);
+    });
 
-    // Simulate placing an order
-    function placeOrder() {
-        orderDetails.classList.add('show');
-        orderStatus.textContent = 'Your order is being prepared...';
-
-        // Simulate canteen owner actions
-        setTimeout(() => {
-            orderStatus.textContent = 'Your order is ready for pickup!';
-        }, 5000); // Order ready after 5 seconds
-
-        setTimeout(() => {
-            orderDetails.classList.remove('show');
-            orderStatus.textContent = 'You don\'t have any pending order.';
-        }, 10000); // Order complete after another 5 seconds
-    }
-
-    // Simulate clicking the checkout button
-    placeOrder();
+    document.querySelectorAll('.quantity-controls input').forEach(input => {
+        input.addEventListener('change', showOrderSummary);
+    });
 });

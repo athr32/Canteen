@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     include("db.php");
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -8,17 +7,17 @@
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        if(!empty($password) && !empty($username) && !empty($name) && !empty($email)){
-            $query = "INSERT INTO form (name, username, email, password) VALUES ('$name', '$username','$email', '$password')";
-            
+        $user_type = $_POST['user_type']; // Added user type
+
+        if(!empty($password) && !empty($username) && !empty($name) && !empty($email) && !empty($user_type)){
+            $query = "INSERT INTO form (name, username, email, password, user_type) VALUES ('$name', '$username', '$email', '$password', '$user_type')";
+
             if (mysqli_query($con, $query)) {
                 echo "<script type='text/javascript'>alert('Successfully Registered');</script>";
-            } 
-            else {
+            } else {
                 echo "Error: " . $query . "<br>" . mysqli_error($con);
             }
-        }
-        else {
+        } else {
             echo "<script type='text/javascript'>alert('Please enter some valid information!')</script>";
         }
     }
@@ -49,8 +48,14 @@
                 <input type="password" id="signup_password" name="password" placeholder="Password" required>
             </div>
             <div>
+                <select id="signup_user_type" name="user_type" required>
+                    <option value="" disabled selected>Select User Type</option>
+                    <option value="user">User</option>
+                    <option value="owner">Owner</option>
+                </select>
+            </div>
             <div>
-                <button type="submit">signup</button>
+                <button type="submit">Sign Up</button>
             </div>
         </form>
         <p>

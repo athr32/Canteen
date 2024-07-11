@@ -35,7 +35,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('d1.jpg');
+            background-image: url('cafe96.jpg');
             background-size: cover;
             background-position: center;
             margin: 0;
@@ -65,28 +65,28 @@
 
     <script>
         const foodItems = [
-            { "id": 21, name: 'Cappuccino', price: '60' },
-            { "id": 22, name: 'Tea', price: '10' },
-            { "id": 23, name: 'Masala Coke', price: '60' },
-            { "id": 24, name: 'Oreo Shake', price: '75' },
-            { "id": 25, name: 'French Fries', price: '60' },
-            { "id": 26, name: 'Veg Burger', price: '70' },
-            { "id": 27, name: 'Cheese Burger', price: '80' },
-            { "id": 28, name: 'Veg Cheese Sandwich', price: '60' },
-            { "id": 29, name: 'Aloo Paratha', price: '45' },
-            { "id": 210, name: 'Paneer Paratha', price: '60' },
-            { "id": 211, name: 'Idli(2pc) Sambhar', price: '50' },
-            { "id": 212, name: 'Masala Dosa', price: '70' },
-            { "id": 213, name: 'Red Sauce Pasta', price: '130' },
-            { "id": 214, name: 'Veg Hakka Noodles', price: '90' },
-            { "id": 215, name: 'Veg Spring Rolls', price: '80' },
-            { "id": 216, name: 'Chilli Potato', price: '80' },
-            { "id": 217, name: 'Paneer Fried Rice', price: '110' },
-            { "id": 218, name: 'Veggie Delight Pizza', price: '170' },
-            { "id": 219, name: 'Peppy Paneer Pizza', price: '180' },
-            { "id": 220, name: 'Farmhouse Pizza', price: '210' },
-            { "id": 221, name: 'Brownie with Ice Cream', price: '80' }
-        ];
+            { "id": 11, "name": "Tea", "price": "10" },
+            { "id": 12, "name": "Coffee", "price": "15" },
+            { "id": 13, "name": "Veg Hakka Noodles", "price": "90" },
+            { "id": 14, "name": "Veg Schezwan Noodles", "price": "90" },
+            { "id": 15, "name": "Veg Fried Rice", "price": "80" },
+            { "id": 16, "name": "Manchurian", "price": "110" },
+            { "id": 17, "name": "Aloo Tikki Burger", "price": "50" },
+            { "id": 18, "name": "Cheese Burger", "price": "80" },
+            { "id": 19, "name": "Veg Momos", "price": "40" },
+            { "id": 110, "name": "French Fries", "price": "60" },
+            { "id": 111, "name": "Cheesy Fries", "price": "80" },
+            { "id": 112, "name": "Coleslaw Sandwich", "price": "50" },
+            { "id": 113, "name": "Cheese Grilled Sandwich", "price": "100" },
+            { "id": 114, "name": "Masala Dosa", "price": "60" },
+            { "id": 115, "name": "Idli/Vada Sambhar (2pc)", "price": "50" },
+            { "id": 116, "name": "Veg Spring Rolls", "price": "65" },
+            { "id": 117, "name": "Uttapam", "price": "60" },
+            { "id": 118, "name": "Cheese Pizza", "price": "90" },
+            { "id": 119, "name": "Onion Capsicum Pizza", "price": "100" },
+            { "id": 120, "name": "Three Cheese Pizza", "price": "130" },
+            { "id": 121, "name": "Onion Capsicum Paneer Pizza", "price": "120" }
+        ]
 
         const foodMenu = document.getElementById('food-menu');
         foodItems.forEach(item => {
@@ -154,6 +154,7 @@
             const modal = document.getElementById('order-summary-modal');
             modal.style.display = "none";
         }
+
         function checkout() {
             const selectedItems = [];
             document.querySelectorAll('.food-item input[type="checkbox"]:checked').forEach(checkbox => {
@@ -197,7 +198,6 @@
                 alert('Error placing order.');
             });
         }
-        
     </script>
 </body>
 </html>
