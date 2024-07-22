@@ -1,0 +1,321 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url("back.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    text-align: center;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+.profile-block {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #ff6347;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-block h3 {
+    margin: 0;
+}
+
+.logout-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #ff6347;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+/* Hide scrollbar for WebKit browsers */
+body::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+/* Hide scrollbar for Firefox */
+body {
+    scrollbar-width: none;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 4rem;
+    color: #e6d00f;
+    margin-top: 5%;
+    margin-bottom: 10px;
+}
+
+#curb {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+a {
+    color: #e6d00f;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+.person {
+    margin-bottom: 30px;
+}
+
+.person h3 {
+    font-size: 2rem;
+    color: #e6d00f;
+}
+
+.person p {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+/* Menu Tabs Styles */
+.tabs {
+    display: flex;
+    justify-content: space-around; /* Center tabs with space around */
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px; /* Increase margin around tabs */
+    background-color: #e6d00f;
+    color: #000;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    max-width: 200px;
+}
+
+.tab:hover {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.tab img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.tab span {
+    margin-top: 5px;
+}
+
+.tab:hover img {
+    transform: scale(1.05);
+}
+
+#about_us {
+    text-align: center;
+    padding: 20px;
+}
+
+.person-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.person {
+    width: 45%;
+    text-align: center;
+}
+
+.person img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.person h3 {
+    margin-top: 10px;
+}
+
+.person p {
+    margin-top: 10px;
+}
+
+.contact-info {
+    margin-top: 10px;
+}
+
+/* Rating Section Styles */
+.rating-section {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+.rating-section h4 {
+    margin-bottom: 10px;
+}
+
+.rating-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.rating-form label {
+    margin-top: 10px;
+}
+
+.rating-form .star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.rating-form .star-rating input {
+    display: none;
+}
+
+.rating-form .star-rating label {
+    font-size: 2rem;
+    color: #5a5656;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.rating-form .star-rating input:checked ~ label,
+.rating-form .star-rating label:hover,
+.rating-form .star-rating label:hover ~ label {
+    color: #f5b301;
+}
+
+.rating-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.rating-form button {
+    background-color: #e6d00f;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.rating-form button:hover {
+    background-color: #ffffff;
+}
+
+.average-rating {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+.average-rating-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.average-rating-bar {
+    height: 20px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+}
+
+/* Feedback Box Styles */
+.feedback-box {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    width: 100%;
+    max-width: 600px; /* Limit width to maintain readability */
+    margin: 0 auto; /* Center horizontally */
+    background-color: rgba(247, 237, 237, 0.5);
+}
+
+.feedback-box textarea {
+    width: calc(100% - 20px); /* Adjust width to fit within parent container */
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.feedback-box button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #e6d00f;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+}
+
+.feedback-box button:hover {
+    background-color: #ffffff;
+    color: #000;
+}
